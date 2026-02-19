@@ -1,8 +1,3 @@
-"""
-Personal Financial Management Program for First-Year Students
-A command-line application to track expenses and manage budget.
-"""
-
 
 def get_budget():
     """
@@ -11,13 +6,13 @@ def get_budget():
     """
     while True:
         try:
-            budget_input = input("Enter your budget amount: $")
+            budget_input = input("Enter your budget amount: Ugx")
             budget = float(budget_input)
             if budget < 0:
                 print("Error: Budget cannot be negative. Please enter a non-negative amount.")
                 continue
             if budget == 0:
-                print("Warning: Your budget is $0. You won't be able to spend anything.")
+                print("Warning: Your budget is Ugx0. You won't be able to spend anything.")
             return budget
         except ValueError:
             print("Error: Invalid input. Please enter a valid number.")
@@ -42,7 +37,7 @@ def get_transaction():
     # Get amount
     while True:
         try:
-            amount_input = input("Enter transaction amount: $")
+            amount_input = input("Enter transaction amount: Ugx")
             amount = float(amount_input)
             if amount < 0:
                 print("Error: Amount cannot be negative. Please enter a positive amount.")
@@ -58,11 +53,11 @@ def display_warning(total_expenses, budget):
     """
     exceeded_by = total_expenses - budget
     print("\n" + "=" * 50)
-    print("⚠️  WARNING: BUDGET EXCEEDED! ⚠️")
+    print("WARNING: BUDGET EXCEEDED! ⚠️")
     print("=" * 50)
-    print(f"Total Expenses: ${total_expenses:.2f}")
-    print(f"Budget:         ${budget:.2f}")
-    print(f"Exceeded by:    ${exceeded_by:.2f}")
+    print(f"Total Expenses: Ugx{total_expenses:.2f}")
+    print(f"Budget:         Ugx{budget:.2f}")
+    print(f"Exceeded by:    Ugx{exceeded_by:.2f}")
     print("=" * 50 + "\n")
 
 
@@ -82,21 +77,21 @@ def display_summary(budget, transactions):
     print("=" * 60)
     
     # Budget Information
-    print(f"\n📊 INITIAL BUDGET:        ${budget:.2f}")
+    print(f"\nINITIAL BUDGET:        Ugx{budget:.2f}")
     
     # Total Expenses
-    print(f"💸 TOTAL EXPENSES:        ${total_expenses:.2f}")
+    print(f"TOTAL EXPENSES:        Ugx{total_expenses:.2f}")
     
     # Balance or Deficit
     if remaining_balance >= 0:
-        print(f"💰 REMAINING BALANCE:    ${remaining_balance:.2f}")
+        print(f"REMAINING BALANCE:    Ugx{remaining_balance:.2f}")
         if remaining_balance > 0:
-            print("✅ You are within your budget! Great job!")
+            print("You are within your budget! Great job!")
         else:
-            print("✅ You have spent exactly your budget.")
+            print("You have spent exactly your budget.")
     else:
-        print(f"⚠️  DEFICIT:              ${abs(remaining_balance):.2f}")
-        print("❌ You have exceeded your budget!")
+        print(f"DEFICIT:              Ugx{abs(remaining_balance):.2f}")
+        print("You have exceeded your budget!")
     
     # Transaction List
     print("\n" + "-" * 60)
@@ -109,10 +104,10 @@ def display_summary(budget, transactions):
         print(f"{'No.':<5} {'Description':<30} {'Amount':>15}")
         print("-" * 60)
         for i, (description, amount) in enumerate(transactions, 1):
-            print(f"{i:<5} {description:<30} ${amount:>14.2f}")
+            print(f"{i:<5} {description:<30} Ugx{amount:>14.2f}")
     
     print("-" * 60)
-    print(f"{'TOTAL':<35} ${total_expenses:>14.2f}")
+    print(f"{'TOTAL':<35} Ugx{total_expenses:>14.2f}")
     print("=" * 60 + "\n")
 
 
@@ -128,7 +123,7 @@ def main():
     # Step 1: Get budget
     print("\n--- Step 1: Set Your Budget ---")
     budget = get_budget()
-    print(f"\n✅ Budget set to: ${budget:.2f}")
+    print(f"\n Budget set to: Ugx{budget:.2f}")
     
     # Step 2: Collect transactions
     transactions = []
@@ -158,7 +153,7 @@ def main():
         transaction_count += 1
         total_expenses += amount
         
-        print(f"✅ Transaction added: {description} - ${amount:.2f}", end="")
+        print(f"✅ Transaction added: {description} - Ugx{amount:.2f}", end="")
         
         # Check if budget exceeded
         if total_expenses > budget:
@@ -166,7 +161,7 @@ def main():
         
         # Show running total
         remaining = budget - total_expenses
-        print(f"   Running total: ${total_expenses:.2f} | Remaining: ${remaining:.2f}")
+        print(f"   Running total: Ugx{total_expenses:.2f} | Remaining: Ugx{remaining:.2f}")
     
     # Step 3: Display summary
     display_summary(budget, transactions)
