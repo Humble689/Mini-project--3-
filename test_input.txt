@@ -1,0 +1,12 @@
+100
+Textbooks
+25.50
+Coffee
+3.50
+Bus pass
+30.00
+Lunch
+8.75
+Notebook
+5.00
+done
