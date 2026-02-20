@@ -109,7 +109,7 @@ def display_summary(budget, transactions):
     print("-" * 60)
     print(f"{'TOTAL':<35} Ugx{total_expenses:>14.2f}")
     print("=" * 60 + "\n")
-
+ 
 
 def main():
     """
