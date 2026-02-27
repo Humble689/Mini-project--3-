@@ -1,3 +1,22 @@
+"""
+Personal Financial Assistant
+
+This module implements a command-line application for tracking personal expenses.
+It allows users to set a budget, add expenses categorized by type, and view a summary
+of their financial status. The application uses object-oriented programming principles
+with classes for Expense and BudgetTracker.
+
+Features:
+- Set a monthly budget
+- Add expenses with categories (Sacks, Lunch, Breakfast, Supper, Utilities)
+- Real-time balance updates
+- Final summary report with transaction log
+
+Usage:
+Run the script directly: python finance_tracker.py
+Follow the prompts to enter budget and expenses.
+"""
+
 import sys
 
 class Expense:
